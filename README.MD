@@ -76,19 +76,19 @@ Easy IA WebOs/
 ## 📸  Galería del Sistema
 
 
-| :---: | :---: |
+
 | ![Escritorio](./imagenes/Captura%20de%20pantalla%202026-05-04%20005026.png) | ![Explorador](./imagenes/Captura%20de%20pantalla%202026-05-04%20005113.png) |
 
 
-| :---: | :---: |
+
 | ![Configuración](./imagenes/Captura%20de%20pantalla%202026-05-04%20005128.png) | ![Ajustes](./imagenes/Captura%20de%20pantalla%202026-05-04%20005143.png) |
 
 
-| :---: | :---: |
+
 | ![Terminal](./imagenes/Captura%20de%20pantalla%202026-05-04%20005154.png) | ![Usuarios](./imagenes/Captura%20de%20pantalla%202026-05-04%20005221.png) |
 
 
-| :---: | :---: |
+
 | ![Almacenamiento](./imagenes/Captura%20de%20pantalla%202026-05-04%20005300.png) | ![Panoramic](./imagenes/Captura%20de%20pantalla%202026-05-04%20005607.png) |
 
 ---
