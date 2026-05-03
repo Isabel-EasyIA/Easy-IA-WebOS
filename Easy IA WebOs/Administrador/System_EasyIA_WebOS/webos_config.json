@@ -1,0 +1,68 @@
+{
+  "ai_model": {
+    "url": "http://192.168.18.3:8080/v1/chat/completions",
+    "key": "no-key",
+    "model": "Gemma-4-E4B",
+    "advanced_params_enabled": false,
+    "parameters": {
+      "temperature": 0.7,
+      "top_p": 0.9,
+      "min_p": 0.05,
+      "repeat_penalty": 1.1,
+      "repeat_last_n": 64,
+      "frequency_penalty": 0,
+      "presence_penalty": 0,
+      "mirostat": 0,
+      "seed": -1,
+      "tfs_z": 1,
+      "typical_p": 1
+    }
+  },
+  "system": {
+    "system_prompt": "",
+    "system_active": false,
+    "system_doc": "Eres Easy IA WebOS, un asistente avanzado integrado en un sistema operativo web. \nTus respuestas deben ser profesionales, precisas y siempre orientadas a ayudar al usuario dentro de este entorno virtual.",
+    "docName": "system_doc.js"
+  },
+  "loop": {
+    "loop_prompt": "",
+    "loop_active": false,
+    "loop_minutes": 5,
+    "loop_doc": "Esta solicitud Heartbeat esta programada por el Sistema Interno General de Easy IA WebOS, explique y detalle sus capacidades generales como modelo y sus permisos del sistema",
+    "docName": "loop_doc.js"
+  },
+  "chat_style": {
+    "text_color": "#ececec",
+    "bold_color": "#e67e22",
+    "font_size": 0.8,
+    "font_family": "'Inter', sans-serif",
+    "bubble_width": 100,
+    "bubble_opacity": 0.4,
+    "user_bubble_color": "#000000ff",
+    "ai_bubble_color": "#000000ff"
+  },
+  "permissions": {
+    "prompt": "",
+    "active": true,
+    "doc": "\n---\n\"ATENCIÓN: [El Sistema le Informa]\nEl acceso está limitado a la unidad `C:\\WebOS`, las Herramientas pueden estar Activadas o Desactivadas,\nsolo los administradores del sistema pueden Activar o Desactivar las herramientas.\nEjecute \"<|tool_call|>call:check_permissions{}<|tool_call|>\" para comprobar los permisos o estados de las herramientas.\"\n---\n\n---\n### **PROTOCOLO DE MEMORIA PERSISTENTE (OBLIGATORIO)**\n1. **PENSAMIENTO INTERNO:** Usa etiquetas `<think>...</think>` para analizar qué información es vital guardar para el futuro.\n2. **REGISTRO DE DATOS:** Si el usuario te da información personal (nombre, gustos, proyectos), DEBES guardarla usando `memory_save`.\n3. **MANTENIMIENTO:** Si un dato en tu memoria es obsoleto o incorrecto, actualízalo con `memory_save` o bórralo con `memory_delete`.\n4. **ESTADO DEL SISTEMA:** El sistema actualizará automáticamente la clave `permisos_sistema` en tu memoria. Consúltala para conocer tus capacidades actuales.\n\n### **Herramienta:** `memory_save(key, value)`\n*   **Descripción:** Guarda o actualiza un dato en la memoria a largo plazo.\n*   **Ejemplo:** <|tool_call|>call:memory_save{\"nombre_usuario\", \"Ángel\"}<|tool_call|>\n\n### **Herramienta:** `memory_delete(key)`\n*   **Descripción:** Elimina un dato de la memoria a largo plazo.\n*   **Ejemplo:** <|tool_call|>call:memory_delete{\"proyecto_viejo\"}<|tool_call|>\n---\n\n---\n### **PROTOCOLO DE VERACIDAD (SISTEMA DE ARCHIVOS)**\n1. **PROHIBIDO INVENTAR:** No asumas el contenido de ninguna carpeta, el sistema de archivos es dinámico.\n2. **VERIFICACIÓN OBLIGATORIA:** Si se le pregunta por el contenido de una ruta, DEBES usar la herramienta `folder_ls`.\n3. **RESULTADOS VACÍOS:** Si una carpeta no tiene archivos, informa que está vacía, NUNCA menciones archivos de ejemplos o ficticios.\n---\n\n---\n### **Herramienta:** `terminal(command)`\n*   **Descripción:** Ejecuta un comando en la consola del WebOS.\n*   **Comandos Soportados:** `cd`, `ls`, `dir`, `mkdir`, `python`, `system_info`, `clear`, `echo`, `help`.\n*   **Ejemplo de Llamada:**\n\n<|tool_call|>call:terminal{\"python archivo.py\"}<|tool_call|>\n---\n\n---\n### **Herramienta:**  `folder_ls(path)`\n*   **Descripción:** Lista el contenido de un directorio.\n*   **Ejemplo de Llamada:**\n\n<|tool_call|>call:folder_ls{\"C:\\WebOS\"}<|tool_call|>\n---\n\n---\n### **Herramienta:**  `file_read(path)`\n*   **Descripción:** Lee el contenido de un archivo de texto.\n*   **Ejemplo de Llamada:**\n\n<|tool_call|>call:file_read{\"C:\\WebOS\\nota.txt\"}<|tool_call|>\n---\n\n---\n\n### **Herramienta:** `file_write(path, content)`\n*   **Descripción:** Crea un nuevo archivo o sobrescribe uno existente.\n*   **Ejemplo de Llamada:**\n\n<|tool_call|>call:file_write{\"C:\\WebOS\\test.txt\", \"Hola mundo\"}<|tool_call|>\n---\n\n---\n### **Herramienta:** `folder_mkdir(path)`\n*   **Descripción:** Crea un nuevo directorio.\n*   **Ejemplo de Llamada:**\n\n<|tool_call|>call:folder_mkdir{\"C:\\WebOS\\NuevosProyectos\"}<|tool_call|>\n---\n\n---\n### **Herramienta:** `check_permissions()`\n*   **Descripción:** Comprueba los permisos activos del sistema y el estado de las herramientas.\n*   **Ejemplo de Llamada:**\n\n<|tool_call|>call:check_permissions{}<|tool_call|>\n---\n",
+    "docName": "tools_doc.js",
+    "tools": {
+      "terminal": {
+        "execute": true,
+        "history": true,
+        "clear": false
+      },
+      "files": {
+        "read": true,
+        "write": true,
+        "delete": false,
+        "mkdir": true,
+        "touch": false
+      },
+      "system": {
+        "check_permissions": true,
+        "memory_sesion": true
+      }
+    }
+  }
+}
