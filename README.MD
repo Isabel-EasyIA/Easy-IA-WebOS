@@ -73,7 +73,25 @@ Easy IA WebOs/
 
 ---
 
+## 📸 🇪🇸 Galería del Sistema
+
+| Interfaz Principal | Explorador de Archivos |
+| :---: | :---: |
+| ![Escritorio](./imagenes/Captura%20de%20pantalla%202026-05-04%20005026.png) | ![Explorador](./imagenes/Captura%20de%20pantalla%202026-05-04%20005113.png) |
+
+| Configuración de IA | Ajustes de Sistema |
+| :---: | :---: |
+| ![Configuración](./imagenes/Captura%20de%20pantalla%202026-05-04%20005128.png) | ![Ajustes](./imagenes/Captura%20de%20pantalla%202026-05-04%20005143.png) |
+
+| Terminal y Comandos | Perfiles de Usuario |
+| :---: | :---: |
+| ![Terminal](./imagenes/Captura%20de%20pantalla%202026-05-04%20005154.png) | ![Usuarios](./imagenes/Captura%20de%20pantalla%202026-05-04%20005221.png) |
+
+| Gestión Local-First | Vista Panorámica |
+| :---: | :---: |
+| ![Almacenamiento](./imagenes/Captura%20de%20pantalla%202026-05-04%20005300.png) | ![Panoramic](./imagenes/Captura%20de%20pantalla%202026-05-04%20005607.png) |
+
+---
+
 > **Nota**: Este proyecto está diseñado para usuarios que buscan privacidad absoluta y un control total sobre cómo la Inteligencia Artificial interactúa con sus archivos personales.
 
-
-![Vista Previa de Easy IA WebOS](./imagenes/Captura%20de%20pantalla%202026-05-04%20005607.png)
