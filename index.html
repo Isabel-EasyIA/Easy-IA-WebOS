@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Easy IA WebOS</title>
+    <meta name="description" content="Un sistema operativo de escritorio basado en la web con IA integrada, modular y seguro.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700&family=Montserrat:wght@300;400;500;700&family=Open+Sans:wght@300;400;600;700&family=Ubuntu:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <script src="lib/lucide.min.js"></script>
+    <script src="lib/marked.min.js"></script>
+    <link rel="icon" type="image/x-icon" href="assets/icon.ico">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div id="desktop">
+        <div id="wallpaper-overlay"></div>
+        
+        <!-- Desktop Chat Area -->
+        <div id="desktop-chat-container">
+            <div id="chat-sidebar" class="glass" style="display:none; width: 220px; border-right: 1px solid rgba(255,255,255,0.1); padding: 15px; flex-direction: column; gap: 15px;">
+                <button onclick="createNewChatSession()" style="width: 100%; padding: 10px; border-radius: 8px; border: 1px solid var(--accent-color); background: rgba(234, 127, 5, 0.1); color: var(--accent-color); cursor: pointer; font-size: 0.8rem; font-weight: 600; display: flex; align-items: center; justify-content: center; gap: 8px;">
+                    <i data-lucide="plus" style="width:14px;"></i> Nuevo Chat
+                </button>
+                <div id="chat-sessions-list" style="flex:1; overflow-y: auto; display: flex; flex-direction: column; gap: 5px;"></div>
+            </div>
+            <div id="chat-messages" style="flex:1;"></div>
+        </div>
+
+        <!-- Window Container -->
+        <div id="window-container"></div>
+
+        <!-- macOS Style Dock -->
+        <nav id="dock-container">
+            <div id="dock" class="glass">
+                <div class="dock-item" onclick="openApp('explorer')" title="Archivos">
+                    <div class="dock-icon-wrapper" style="--icon-bg: linear-gradient(135deg, #3b82f6, #2563eb);">
+                        <i data-lucide="folder"></i>
+                    </div>
+                </div>
+                <div class="dock-item" onclick="openApp('terminal')" title="Terminal">
+                    <div class="dock-icon-wrapper" style="--icon-bg: linear-gradient(135deg, #10b981, #059669);">
+                        <i data-lucide="terminal"></i>
+                    </div>
+                </div>
+                <div class="dock-item" onclick="openApp('settings')" title="Ajustes">
+                    <div class="dock-icon-wrapper" style="--icon-bg: linear-gradient(135deg, #6366f1, #4f46e5);">
+                        <i data-lucide="settings"></i>
+                    </div>
+                </div>
+                <div class="dock-item" onclick="openApp('users')" title="Usuarios">
+                    <div class="dock-icon-wrapper" style="--icon-bg: linear-gradient(135deg, #f43f5e, #e11d48);">
+                        <i data-lucide="users"></i>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+
+
+        <!-- Chat Input Bar -->
+        <div id="chat-input-container" class="glass" style="display: flex; align-items: center; position: absolute; bottom: 25px;">
+            <!-- Telemetría Minimalista Permanente (Centrada) -->
+            <div id="chat-telemetry" style="position: absolute; top: 2px; left: 50%; transform: translateX(-50%); display: flex; gap: 20px; font-family: 'monospace'; font-size: 9px; pointer-events: none; opacity: 0.6;">
+                <span id="telemetry-speed" style="color: var(--accent-color);">Tokens/s: 0.0</span>
+                <span id="telemetry-context" style="color: var(--text-secondary);">Contexto: 0</span>
+            </div>
+
+            <button onclick="requestNewChatSession()" style="background: none; border: none; color: var(--text-secondary); cursor: pointer; padding: 0 5px;" title="Nueva Sesión">
+                <i data-lucide="message-square-plus" style="width: 18px;"></i>
+            </button>
+            <label style="background: none; border: none; color: var(--text-secondary); cursor: pointer; padding: 0 5px; display: flex; align-items: center;" title="Adjuntar documento">
+                <i data-lucide="paperclip" style="width: 18px;"></i>
+                <input type="file" id="chat-file-input" style="display:none;" onchange="handleChatFileUpload(event)">
+            </label>
+            <textarea id="ai-chat-input" placeholder="Escribe un mensaje a la IA..." autocomplete="off" onkeydown="handleChatInput(event)" rows="1"></textarea>
+            <button id="ai-chat-send" onclick="sendChatMessage()">
+                <i data-lucide="send"></i>
+            </button>
+            <button id="voice-btn" onclick="toggleVoiceInput()" style="background: none; border: none; color: var(--text-secondary); cursor: pointer; padding: 0 10px;" title="Dictado por voz">
+                <i data-lucide="mic" style="width: 20px;"></i>
+            </button>
+        </div>
+
+        <!-- System Tray at Far Bottom Right -->
+        <div id="system-tray" class="glass">
+            <div id="taskbar-clock">00:00</div>
+            <div class="tray-icons">
+                <i data-lucide="wifi"></i>
+                <i data-lucide="battery"></i>
+            </div>
+        </div>
+
+        <!-- Custom Modal -->
+        <div id="modal-overlay">
+            <div class="modal-card">
+                <div class="modal-icon"><i data-lucide="alert-circle"></i></div>
+                <h3 id="modal-title">Título</h3>
+                <p id="modal-message">Mensaje</p>
+                <input type="text" id="modal-input" class="settings-input" style="display:none; margin-bottom: 20px; width: 100%; text-align: center;" placeholder="Escribe aquí...">
+                <div class="modal-btns">
+                    <button class="modal-btn cancel" onclick="closeModal()">Cancelar</button>
+                    <button class="modal-btn confirm" id="modal-confirm">Aceptar</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="js/config.js"></script>
+    <script src="docs/tools_doc.js"></script>
+    <script src="docs/system_doc.js"></script>
+    <script src="docs/loop_doc.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/tools.js"></script>
+    <script src="js/permissions.js"></script>
+    <script src="js/chat.js"></script>
+    <script>
+        // Initialize Lucide icons after all modules load
+        lucide.createIcons();
+    </script>
+</body>
+</html>
