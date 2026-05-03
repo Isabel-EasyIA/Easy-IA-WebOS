@@ -1,4 +1,4 @@
-# 🖥️ Easy IA WebOS 🇪🇸
+Easy IA WebOS 🇪🇸
 
 > [!WARNING]
 > **Estado del Proyecto: En Desarrollo (Work in Progress)**. Este sistema se encuentra en fase activa de desarrollo y mejora continua.
