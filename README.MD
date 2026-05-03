@@ -76,19 +76,19 @@ Easy IA WebOs/
 ## 📸  Galería del Sistema
 
 
-| Interfaz Principal | Explorador de Archivos |
+| Interfaz Principal | Configuración de IA |
 | :---: | :---: |
 | ![Escritorio](./imagenes/Captura%20de%20pantalla%202026-05-04%20005026.png) | ![Explorador](./imagenes/Captura%20de%20pantalla%202026-05-04%20005113.png) |
 
-| Configuración de IA | Ajustes de Sistema |
+| Gestión Local-First | Perfiles de Usuario |
 | :---: | :---: |
 | ![Configuración](./imagenes/Captura%20de%20pantalla%202026-05-04%20005128.png) | ![Ajustes](./imagenes/Captura%20de%20pantalla%202026-05-04%20005143.png) |
 
-| Terminal y Comandos | Perfiles de Usuario |
+| Estilo del Chat | Ajustes de Sistema |
 | :---: | :---: |
 | ![Terminal](./imagenes/Captura%20de%20pantalla%202026-05-04%20005154.png) | ![Usuarios](./imagenes/Captura%20de%20pantalla%202026-05-04%20005221.png) |
 
-| Gestión Local-First | Vista Panorámica |
+| Crear Usuario | Vista Panorámica Interfaz|
 | :---: | :---: |
 | ![Almacenamiento](./imagenes/Captura%20de%20pantalla%202026-05-04%20005300.png) | ![Panoramic](./imagenes/Captura%20de%20pantalla%202026-05-04%20005607.png) |
 
