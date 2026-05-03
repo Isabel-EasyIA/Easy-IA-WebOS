@@ -76,4 +76,4 @@ Easy IA WebOs/
 > **Nota**: Este proyecto está diseñado para usuarios que buscan privacidad absoluta y un control total sobre cómo la Inteligencia Artificial interactúa con sus archivos personales.
 
 
-https://github.com/Isabel-EasyIA/Easy-IA-WebOS/blob/main/imagenes/Captura%20de%20pantalla%202026-05-04%20005607.png
+![Vista Previa de Easy IA WebOS](./imagenes/Captura%20de%20pantalla%202026-05-04%20005607.png)
