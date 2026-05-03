@@ -77,7 +77,7 @@ Easy IA WebOs/
 
 
 
-| ![Escritorio](./imagenes/Captura%20de%20pantalla%202026-05-04%20005026.png) | ![Explorador](./imagenes/Captura%20de%20pantalla%202026-05-04%20005113.png) |
+(./imagenes/Captura%20de%20pantalla%202026-05-04%20005026.png) | (./imagenes/Captura%20de%20pantalla%202026-05-04%20005113.png)
 
 
 
